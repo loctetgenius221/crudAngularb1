@@ -1,0 +1,65 @@
+/* Global Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa;
+}
+
+/* Container for padding and margins */
+.container {
+  max-width: 800px;
+}
+
+/* Card styles */
+.card {
+  margin: 20px 0;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.card-subtitle {
+  font-size: 1.25rem;
+  color: #6c757d;
+}
+
+.card-text {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* List group for comments */
+.list-group-item {
+  border: none;
+  padding: 15px;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.list-group-item:last-child {
+  border-bottom: 0;
+}
+
+/* Button styles */
+.btn-warning {
+  background-color: #ffc107;
+  border-color: #ffc107;
+}
+
+.btn-warning:hover {
+  background-color: #e0a800;
+  border-color: #d39e00;
+}
+
+/* Heading styles */
+h1 {
+  color: #007bff;
+}
+
+h2 {
+  color: #343a40;
+}

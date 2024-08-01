@@ -1,0 +1,26 @@
+<!-- Page de Détail -->
+<div class="container mt-4">
+  <h1 class="text-center text-primary">Post Details</h1>
+  <a href="#" routerLink="/post/index" class="btn btn-warning mb-3">Back to List</a>
+
+  <div class="card mb-4 shadow-sm">
+    <div class="card-body">
+      <h5 class="card-title">Post ID: {{ post.id }}</h5>
+      <h4 class="card-subtitle mb-2 text-muted">{{ post.title }}</h4>
+      <p class="card-text">{{ post.body }}</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header bg-secondary text-white">
+      <h2>Comments</h2>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li *ngFor="let comment of comments" class="list-group-item">
+        <h5>{{ comment.name }}</h5>
+        <p>{{ comment.body }}</p>
+        <small class="text-muted">{{ comment.email }}</small>
+      </li>
+    </ul>
+  </div>
+</div>
