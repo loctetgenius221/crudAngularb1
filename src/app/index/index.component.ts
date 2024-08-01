@@ -4,6 +4,8 @@ import { RouterModule } from '@angular/router';
 import { PostService } from '../post.service';
 import { Post } from '../models/post.model';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-index',
@@ -36,9 +38,23 @@ export class IndexComponent implements OnInit {
   deletePost(id: number) {
     this.postService.delete(id).subscribe(res => {
       this.posts = this.posts.filter(item => item.id !== id);
-      alert('Post Deleted Successfully!');
-    });
+      Swal.fire({
+        title: 'Etes vous sure de vouloir supprimer cette article?',
+        text: 'L\'article sera supprimer définitivement!',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Oui, supprimer l\'article!',
+        cancelButtonText: 'Non, ne pas supprimer it'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire('Supprimer!', 'Votre article a été supprimer avec succès.', 'success');
+        } else {
+          Swal.fire('Annuler', 'Supprssion annulée', 'error');
+        }
+      });
+    })
   }
+
 
   // Ajout
   get f() {
@@ -52,7 +68,12 @@ export class IndexComponent implements OnInit {
       this.posts.push(res);
       console.log(newPost)
       this.form.reset();
-      alert('Post Created Successfully!');
+      Swal.fire({
+        title: 'Succès!',
+        text: 'Votre article a été ajouté avec succès.',
+        icon: 'success',
+        confirmButtonText: 'OK'
+      });
     });
   }
 }

@@ -4,6 +4,7 @@ import { PostService } from '../post.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Post } from '../models/post.model';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-edit',
@@ -38,7 +39,12 @@ export class EditComponent {
    submit(){
     console.log(this.form.value)
     this.postService.update(this.id,this.form.value).subscribe((res:any)=>{
-      alert("Data Updated Successfull ☺");
+      Swal.fire({
+        title: 'Succès!',
+        text: 'Votre article a été modifier avec succès.',
+        icon: 'success',
+        confirmButtonText: 'OK'
+      });
       this.router.navigateByUrl('post/index')
     })
    }
